@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Nos Produits</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Nos Produits</h1>
+
+<input type="text" placeholder="Rechercher..." class="search-bar">
+
+<div class="cart">
+🛒 Panier (0)
+</div>
+
+<nav>
+<a href="index.html">Accueil</a>
+<a href="produits.html">Produits</a>
+</nav>
+</header>
+
+<section class="products">
+
+<div class="product">
+<img src="https://nutriforce.fr/wp-content/uploads/2025/01/whey-vanille-francaise-proteine-pure-brute-lait-isolate-15kg-.webp">
+<h2>Whey Protein</h2>
+<p>25g de protéines par dose.</p>
+<p class="price">35€</p>
+<button>Ajouter au panier</button>
+</div>
+
+<div class="product">
+<img src="https://nutriforce.fr/wp-content/uploads/2025/02/Creatine-600g.webp">
+<h2>Créatine</h2>
+<p>Améliore la force.</p>
+<p class="price">20€</p>
+<button>Ajouter au panier</button>
+</div>
+
+<div class="product">
+<img src="images/rizerem.jpg">
+<h2>Crème de Riz</h2>
+<p>Source rapide d'énergie.</p>
+<p class="price">10€</p>
+<button>Ajouter au panier</button>
+</div>
+
+<div class="product">
+<img src="images/omega3.jpg">
+<h2>Oméga 3</h2>
+<p>Santé du cœur.</p>
+<p class="price">15€</p>
+<button>Ajouter au panier</button>
+</div>
+
+<div class="product">
+<img src="https://nutriforce.fr/wp-content/uploads/2025/05/Vitamine-D3-bienfaits-dose-pharmacie-livraison.webp">
+<h2>Vitamine D</h2>
+<p>Renforce les os.</p>
+<p class="price">12€</p>
+<button>Ajouter au panier</button>
+</div>
+
+<div class="product">
+<img src="https://nutriforce.fr/wp-content/uploads/2025/08/zinc-gluconate-meilleur-complement-alimentaire.webp">
+<h2>Zinc</h2>
+<p>Soutien immunitaire.</p>
+<p class="price">8€</p>
+<button>Ajouter au panier</button>
+</div>
+
+<div class="product">
+<img src="https://nutriforce.fr/wp-content/uploads/2025/12/60-capsules-magnesium-bisglycinate.webp">
+<h2>Magnésium</h2>
+<p>Réduction fatigue.</p>
+<p class="price">9€</p>
+<button>Ajouter au panier</button>
+</div>
+
+<div class="product">
+<img src="https://nutriforce.fr/wp-content/uploads/2025/08/collagene-marin-peptides-hydrolyses.webp">
+<h2>Collagène</h2>
+<p>Os solides.</p>
+<p class="price">7€</p>
+<button>Ajouter au panier</button>
+</div>
+
+</section>
+
+<script>
+/* ===========================
+   PANIER
+=========================== */
+let count = 0;
+const cart = document.querySelector(".cart");
+const buttons = document.querySelectorAll(".product button");
+
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        count++;
+        cart.innerHTML = "🛒 Panier (" + count + ")";
+    });
+});
+
+/* ===========================
+   RECHERCHE
+=========================== */
+const searchBar = document.querySelector(".search-bar");
+const products = document.querySelectorAll(".product");
+
+searchBar.addEventListener("keyup", function() {
+    const value = this.value.toLowerCase();
+
+    products.forEach(product => {
+        const name = product.querySelector("h2").textContent.toLowerCase();
+
+        if (name.includes(value)) {
+            product.style.display = "block";
+        } else {
+            product.style.display = "none";
+        }
+    });
+});
+</script>
+
+</body>
+</html>

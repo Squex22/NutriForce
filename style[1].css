@@ -1,0 +1,327 @@
+/* ======================================================
+   BRAND SYSTEM — GREEN DOMINANT LUXURY
+====================================================== */
+:root {
+
+    /* PRIMARY GREEN SCALE */
+    --green-900: #041712;
+    --green-800: #062019;
+    --green-700: #0b2f24;
+    --green-600: #124436;
+    --green-500: #1c5d49;
+
+    /* BACKGROUNDS */
+    --bg-main: var(--green-900);
+    --bg-section: var(--green-800);
+    --bg-light: #ffffff;
+
+    /* TEXT */
+    --text-on-dark: #ffffff;
+    --text-soft-dark: rgba(255,255,255,0.7);
+    --text-on-light: #0f0f0f;
+    --text-soft-light: #5f6663;
+
+    /* EFFECTS */
+    --border-glass: rgba(255,255,255,0.08);
+    --border-light: rgba(0,0,0,0.06);
+
+    --shadow-soft: rgba(0,0,0,0.25);
+    --shadow-glow: rgba(28, 93, 73, 0.35);
+}
+
+/* ======================================================
+   GLOBAL RESET
+====================================================== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-main);
+    color: var(--text-on-dark);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ======================================================
+   HEADER
+====================================================== */
+header {
+    background: var(--green-900);
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-glass);
+    position: relative; /* fixe si nécessaire */
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #ffffff, #7ce3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Search bar */
+.search-bar {
+    padding: 12px 20px;
+    width: 280px;
+    border-radius: 40px;
+    border: 1px solid var(--border-glass);
+    background: var(--green-800);
+    color: white;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+.search-bar::placeholder {
+    color: var(--text-soft-dark);
+}
+
+/* Cart */
+.cart {
+    margin-bottom: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Navigation */
+nav a {
+    color: var(--text-soft-dark);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: white;
+}
+
+/* ======================================================
+   HERO SECTION
+====================================================== */
+.intro {
+    position: relative;
+    padding: 200px 20px 160px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--green-900), var(--green-800));
+    overflow: hidden;
+}
+
+.intro::before {
+    content: "";
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(28,93,73,0.25) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: 0;
+}
+
+.intro h2 {
+    font-size: 3.4rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.intro p {
+    max-width: 650px;
+    margin: 0 auto 50px;
+    font-size: 1.15rem;
+    color: var(--text-soft-dark);
+    position: relative;
+    z-index: 1;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 16px 48px;
+    background: white;
+    color: var(--green-800);
+    border-radius: 60px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.35s ease;
+    box-shadow: 0 15px 40px var(--shadow-soft);
+    z-index: 1;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px var(--shadow-glow);
+}
+
+/* ======================================================
+   PRODUCTS SECTION
+====================================================== */
+.products {
+    padding: 160px 40px;
+    background: var(--bg-light);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ======================================================
+   PRODUCT CARD
+====================================================== */
+.product {
+    background: white;
+    padding: 60px 40px;
+    border-radius: 32px;
+    text-align: center;
+    border: 1px solid var(--border-light);
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.06),
+        0 5px 20px rgba(0,0,0,0.03);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.product::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--green-700), var(--green-500));
+    border-radius: 0 0 12px 12px;
+}
+
+.product:hover {
+    transform: translateY(-15px);
+    box-shadow:
+        0 40px 100px rgba(0,0,0,0.12),
+        0 0 60px rgba(28,93,73,0.15);
+}
+
+.product img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    margin-bottom: 40px;
+    transition: transform 0.4s ease;
+}
+
+.product:hover img {
+    transform: scale(1.08);
+}
+
+.product h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--green-700);
+    margin-bottom: 15px;
+}
+
+.product p {
+    color: var(--text-soft-light);
+    margin-bottom: 25px;
+}
+
+.price {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--green-800);
+    margin-bottom: 35px;
+}
+
+/* Product button */
+.product button {
+    padding: 14px 36px;
+    background: var(--green-700);
+    color: white;
+    border: none;
+    border-radius: 60px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.product button:hover {
+    background: var(--green-800);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(28,93,73,0.25);
+}
+
+/* ======================================================
+   FOOTER
+====================================================== */
+footer {
+    padding: 100px 20px;
+    text-align: center;
+    background: var(--green-800);
+    color: var(--text-soft-dark);
+    font-size: 0.95rem;
+}
+
+/* ======================================================
+   ANCHOR SCROLL FIX
+====================================================== */
+:target::before {
+    content: "";
+    display: block;
+    height: 120px; /* hauteur du header */
+    margin-top: -120px; /* même valeur négative */
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+@media (max-width: 1024px) {
+    .intro h2 {
+        font-size: 2.6rem;
+    }
+
+    .products {
+        gap: 60px;
+        padding: 120px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .intro {
+        padding: 140px 20px 100px;
+    }
+
+    .intro h2 {
+        font-size: 2rem;
+    }
+
+    .products {
+        padding: 90px 20px;
+        gap: 40px;
+    }
+
+    .product {
+        padding: 40px 25px;
+    }
+
+    .search-bar {
+        width: 100%;
+        max-width: 300px;
+    }
+}
